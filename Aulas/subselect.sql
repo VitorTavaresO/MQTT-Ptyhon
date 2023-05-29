@@ -96,3 +96,14 @@ WHERE projetos.id_projeto IN
 	 FROM comentario
 	 WHERE comentario.projeto_id = projetos.id_projeto
 	);
+	
+
+SELECT f.titulo,
+	f.qtde_comentarios
+FROM
+	(SELECT p.id_projeto, p.titulo,
+		(SELECT COUNT(c.projeto_id)
+		FROM comentario c
+		WHERE c.projeto_id = p.id_projeto) AS qtde_comentarios
+	FROM projetos p) AS f
+WHERE f.qtde_comentarios > 2;
