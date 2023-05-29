@@ -88,3 +88,11 @@ FROM projetos
 GROUP BY projetos.id_projeto
 ORDER BY projetos.id_projeto;
 
+
+SELECT projetos.titulo
+FROM projetos
+WHERE projetos.id_projeto IN
+	(SELECT comentario.projeto_id
+	 FROM comentario
+	 WHERE comentario.projeto_id = projetos.id_projeto
+	);
