@@ -75,5 +75,16 @@ FROM projetos
 GROUP BY projetos.id_projeto
 ORDER BY projetos.id_projeto;
 
-
+SELECT projetos.titulo,
+	(SELECT COUNT (comentario.projeto_id)
+	FROM comentario
+	WHERE projetos.id_projeto = comentario.projeto_id
+	) AS qtde_comentarios,
+	(SELECT COUNT(likes_por_projeto.projeto_id)
+	FROM likes_por_projeto
+	WHERE projetos.id_projeto = likes_por_projeto.projeto_id
+	) AS qtde_likes
+FROM projetos
+GROUP BY projetos.id_projeto
+ORDER BY projetos.id_projeto;
 
