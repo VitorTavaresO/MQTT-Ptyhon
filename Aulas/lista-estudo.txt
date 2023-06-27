@@ -1,0 +1,136 @@
+SELECT cliente.nome, CHAR_LENGTH(cliente.nome) FROM cliente;
+
+
+A função text || anynonarray converte dados de uma entrada que não sejam uma string em uma string e então concatena com a outra string de entrada da função.
+
+
+A função usada para retornar o número de bits em uma sequência de caracteres é a BIT_LENGTH. Ela é útil quando se quer identificar quantos bits são usados para aquela sequência e caso seja necessário manipular seus bits.
+
+
+A função format é usada para formatar argumentos de acordo com o formato de string fornecido.
+ FORMAT('Hello %s, %1$s', 'World') → Hello World, World
+
+
+O retorno para essa pesquisa será o valor 3.
+
+
+O retorno do código será = ‘ji’
+
+
+SELECT UPPER('teste');
+
+
+
+
+
+SELECT LOWER('TESTE');
+
+
+ A) text^@ text → boolean
+
+
+ SELECT cidade.nome FROM cidade
+WHERE CHAR_LENGTH(cidade.nome) > 10
+ORDER BY cidade.nome ASC;
+
+
+ SELECT primeiro_nome || ' ' || sobrenome FROM clientes;
+
+SELECT usuarios.nome FROM usuario
+WHERE CHAR_LENGTH(usuarios.nome) == 13;
+
+
+SELECT POSITION ('c' in cliente.nome) FROM cliente;
+
+
+Retorna os últimos dígitos informados pelo n integer de uma string text. Ou seja, retornando os últimos caracteres da string de parâmetro de acordo com a quantidade informada no parâmetro inteiro.
+SELECT LOWER('TESTE');
+SELECT UPPER('teste');
+
+
+SELECT produto.nome, TRUNC(produto.valor_unitario, 1) FROM produto
+
+
+Se trata de uma função para potência em SQL, assim, pode-se entender que ao usar essa função a numeric será elevado a b numeric.
+
+
+A função round é responsável por converter um valor double para um valor inteiro mais próximo dele, considerando a regra de 0 a 5 indo para o interior que acompanhada o decimal e 6 a 9 para o próximo inteiro
+
+
+O resultado será -121
+
+
+SELECT ROUND(double a);
+
+
+SELECT CEIL(valor.preco) FROM preco;
+
+
+A função RANDOM() possui a função de gerar um número randômico 0 <= x <= 1 SELECT RANDOM();
+
+
+SELECT produto.nome, TRUNC(produto.preco) FROM produto;
+
+
+SELECT TRUNC(SQRT(numeros.numero)) FROM numeros;
+
+
+ SELECT valorTotal FROM combo
+ WHERE TRUNC(valorTotal) > 15;
+
+
+SELECT FACTORIAL(10);
+
+
+ Não existe diferença entre elas, ambas as funções executam a mesma ação.
+
+
+A função por recuperar o resto de uma divisão em SQL é a função MOD()
+SELECT MOD(9, 4);
+
+
+
+
+
+
+
+
+
+
+
+
+SELECT fornecedor.nome, TO_NUMBER(fornecedor.telefone, '999999999') FROM fornecedor;
+
+
+Essa função converte um intervalo de tempo em uma string de acordo com o formato informado no parâmetro da função.
+
+
+A função que causa esse retorno é a função TO_CHAR(current_timestamp, ‘FMDay, FMDD HH12:MI:SS’)
+FMDay = Dia da semana.
+FMDD = Dia do mês.
+HH12 = Horas em AM/PM 12
+MI = Minutos
+SS = Segundos
+
+
+As funções de formatação podem ser usadas para adequar strings a um formato ou até mesmo converter de um formato para outro, como no caso do TO_DATE ou TO_NUMBER.
+
+
+b) SELECT TO_DATE ('19 JUNE 2023', 'DD MONTH YYYY');
+
+
+Verdadeiro
+
+
+Utilizando a função TO_DATE(string, format)
+
+
+SELECT TO_CHAR (123, '999');
+
+
+SELECT TO_DATE(datas.data, 'DD MON YYYY') FROM datas
+ORDER BY datas.data::DATE DESC;
+
+
+O código está errado, a forma correta seria:
+SELECT to_date('2000 10 30', 'YYYY MM DD')
