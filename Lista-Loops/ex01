@@ -1,0 +1,19 @@
+--01-> Inserir do 1 ao 10 em uma tabela
+CREATE TABLE numeros(
+	num INTEGER NOT NULL
+);
+--IF loop
+DO $$
+DECLARE
+	cont int := 1;
+BEGIN
+	LOOP
+	IF(cont > 10) THEN
+		exit;
+	END IF;
+	INSERT INTO numeros(num) VALUES (cont);
+	cont := cont + 1;
+	END LOOP;
+END $$
+
+SELECT * FROM numeros;
