@@ -28,7 +28,7 @@ CREATE TABLE plant(
     plant_id SERIAL NOT NULL PRIMARY KEY,
     photo VARCHAR(100) NOT NULL,
     name VARCHAR(50) NOT NULL,
-    dataOfCreation DATE NOT NULL,
+    dateOfCreation DATE NOT NULL,
     lastWatering TIMESTAMP NOT NULL,
     lastSunBath TIMESTAMP NOT NULL,
     lastAttention TIMESTAMP NOT NULL,
