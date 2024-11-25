@@ -1,16 +1,16 @@
 import paho.mqtt.client as mqtt
 
 def on_connect(client, userdata, flags, reason_code, properties):
-    print(f"Connected with result code {reason_code}")
-    client.subscribe("topic/test")
+    if reason_code == 0:
+        print("Connection successful")
+    else:
+        print("Connection failed")
 
-def on_message(client, userdata, msg):
-    print(msg.topic+" "+str(msg.payload))
 
-mqttc = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
-mqttc.on_connect = on_connect
-mqttc.on_message = on_message
+if __name__ == '__main__':
+    mqttc = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id="PythonSubscriber")
+    mqttc.on_connect = on_connect
 
-mqttc.connect("177.21.85.228", 1883, 60)
+    mqttc.connect("177.21.85.228", 1883, 60)
 
-mqttc.loop_forever()
+    mqttc.loop_forever()
