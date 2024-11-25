@@ -1,19 +1,20 @@
-from time import sleep
 import paho.mqtt.publish as publish
-import paho.mqtt.subscribe as subscribe
 
 HOSTNAME = "177.21.85.228"
 
-def publish_single_message(topic, message, qos):
-    publish.single(topic, message, hostname=HOSTNAME, qos=qos)
+def publish_single_message(topic, payload, qos=0, retain=False):
+    publish.single(topic, payload, qos=qos, retain=retain, hostname=HOSTNAME)
 
 def publish_multiple_messages(messages):
     publish.multiple(messages, hostname=HOSTNAME)
 
 if __name__ == '__main__':
 
-    publish_single_message("topic/test", "Hello World", 2)
+    publish_single_message("topic/test", "Teste 1", 0, False)
 
-    msgs = [{'topic':"topic/test", 'payload':"Teste 1"},
-    ("topic/test", "Test 2", 2, False)]
+
+    msgs = [
+        ("topic/test", "Teste 2", 1, False),
+        ("topic/test", "Test 3", 2, False),
+    ]
     publish_multiple_messages(msgs)
